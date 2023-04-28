@@ -1,6 +1,6 @@
 import React from "react";
 
-const launchpad = () => {
+const EGOLD = () => {
   return (
     <div
       style={{
@@ -10,9 +10,9 @@ const launchpad = () => {
         height: "100vh",
       }}
     >
-      <h1>LAUNPAD</h1>
+      <h1>EGOLD</h1>
     </div>
   );
 };
 
-export default launchpad;
+export default EGOLD;

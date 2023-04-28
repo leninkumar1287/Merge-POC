@@ -8,23 +8,31 @@ import {
   NavBtn,
   NavBtnLink,
 } from "./NavbarElements";
+import { Button } from "react-bootstrap";
+import useMetaMask from "../../hooks/metamask";
+import background from "../../img/bg2.jpg";
 
 const Navbar = () => {
+  const { connect, disconnect, isActive, account, shouldDisable } =
+    useMetaMask();
+
   return (
     <>
-      <Nav>
+      <Nav
+        style={{
+          backgroundImage: `url(${background})`,
+          backgroundRepeat: "no-repeat",
+        }}
+      >
         <NavLogo to="/">NEO DAPP</NavLogo>
         <Bars />
 
         <NavMenu>
           <NavLink to="/EINR" activeStyle={{ color: "black" }}>
-            EINR
+            EINR-EUSD
           </NavLink>
           <NavLink to="/EGOLD" activeStyle={{ color: "black" }}>
             EGOLD
-          </NavLink>
-          <NavLink to="/EUSD" activeStyle={{ color: "black" }}>
-            EUSD
           </NavLink>
           <NavLink to="/STAKING" activeStyle={{ color: "black" }}>
             STAKING
@@ -36,7 +44,33 @@ const Navbar = () => {
             ICO-LAUNCHPAD
           </NavLink>
           <NavBtn>
-            <NavBtnLink to="/connect-wallet">Connect Wallet</NavBtnLink>
+            {account === undefined && (
+              <Button
+                variant="light"
+                onClick={connect}
+                disabled={shouldDisable}
+              >
+                <img
+                  src="images/metamask.svg"
+                  alt="MetaMask"
+                  width="50"
+                  height="40"
+                />{" "}
+                Connect Wallet
+              </Button>
+            )}
+            {/* Connected Account: {isActive ? account : ""} */}
+            {account != null && (
+              <Button variant="btn btn-success" onClick={disconnect}>
+                <img
+                  src="images/metamask.svg"
+                  alt="MetaMask"
+                  width="50"
+                  height="40"
+                />
+                Disconnect Wallet
+              </Button>
+            )}
           </NavBtn>
         </NavMenu>
       </Nav>

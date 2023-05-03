@@ -104,11 +104,11 @@ function MetaProvider({ children }) {
   useEffect(() => {
     const tryInit = async () => {
       try {
-        const OwnableArtifact = require("../contracts/OwnableContract.json");
-        const EINRArtifact = require("../contracts/EINRContract.json");
-        const EUSDArtifact = require("../contracts/EUSDContract.json");
-        const EGOLDArtifact = require("../contracts/EGOLDContract.json");
-        const InventoryArtifact = require("../contracts/Inventory.json");
+        const OwnableArtifact = require("../ABI/Ownable.json");
+        const EINRArtifact = require("../ABI/EINR.json");
+        const EUSDArtifact = require("../ABI/EUSD.json");
+        const EGOLDArtifact = require("../ABI/EGOLD.json");
+        const InventoryArtifact = require("../ABI/Inventory.json");
         init(
           OwnableArtifact,
           EINRArtifact,

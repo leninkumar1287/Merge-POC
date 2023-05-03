@@ -78,32 +78,6 @@ cron.schedule("0 0 * * *", async () => {
     }).save();
     //*/
 
-    /*
-        let priceUSD = 59, priceINR = 4890;
-                    let transactionObject = {
-                        from: Account.address,
-                        to: EGOLDAddress,
-                        gas: 200000,
-                        gasPrice: '10000000000',
-                        nonce: await web3.eth.getTransactionCount(Account.address),
-                    };
-                    await EGOLDContract.methods.setEGoldPriceINR(web3.utils.toWei(("" + priceINR), "ether")).send(transactionObject)
-                        .then(e => {
-                            // console.log("Gold INR price set.")
-                        });
-                    transactionObject = {
-                        from: Account.address,
-                        to: EGOLDAddress,
-                        gas: 200000,
-                        gasPrice: '10000000000',
-                        nonce: await web3.eth.getTransactionCount(Account.address),
-                    };
-                    await EGOLDContract.methods.setEGoldPriceUSD(web3.utils.toWei(("" + priceUSD), "ether")).send(transactionObject)
-                        .then(e => {
-                            // console.log("Gold USD price set.")
-                        });
-        */
-
     web3.eth.accounts.wallet.remove(Account.address);
   } catch (error) {
     console.log(error);

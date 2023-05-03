@@ -16,12 +16,13 @@ const cors = require("cors");
 router.use(cors());
 
 const web3 = require("web3");
+
 const StoH = (str) => {
   return web3.utils.asciiToHex(str).padEnd(66, "0");
 };
 
 router.post("/EUSD", cors(), async (req, res) => {
-  const { web3, EUSDAddress, EUSDContract } = await web3Func();
+  const { web3, eusdAddress, EUSDContract } = await web3Func();
   let { transactionId, address, amount } = req.body;
 
   try {
@@ -45,7 +46,7 @@ router.post("/EUSD", cors(), async (req, res) => {
 
     let transactionObject = {
       from: Account.address,
-      to: EUSDAddress,
+      to: eusdAddress,
       gas: 200000,
       gasPrice: "10000000000",
       nonce: await web3.eth.getTransactionCount(Account.address),
@@ -83,7 +84,8 @@ router.post("/EUSD", cors(), async (req, res) => {
 });
 
 router.post("/EINR", cors(), async (req, res) => {
-  const { web3, EINRAddress, EINRContract } = await web3Func();
+  const { web3, einrADDRESS, EINRContract } = await web3Func();
+
   let { transactionId, address } = req.body;
   let amount;
   try {
@@ -106,11 +108,12 @@ router.post("/EINR", cors(), async (req, res) => {
     const Account = web3.eth.accounts.privateKeyToAccount(
       process.env.PRIVATE_KEY
     );
+
     web3.eth.accounts.wallet.add(Account);
 
     let transactionObject = {
       from: Account.address,
-      to: EINRAddress,
+      to: einrADDRESS,
       gas: 200000,
       gasPrice: "10000000000",
       nonce: await web3.eth.getTransactionCount(Account.address),
@@ -146,7 +149,7 @@ router.post("/EINR", cors(), async (req, res) => {
 });
 
 router.post("/EGOLD", cors(), async (req, res) => {
-  const { web3, EGOLDAddress, EGOLDContract } = await web3Func();
+  const { web3, egoldAddress, EGOLDContract } = await web3Func();
   let { transactionId, address, amount, from } = req.body;
   let paymentIntent, orderDetails, transaction, amountEGold;
   try {
@@ -177,7 +180,7 @@ router.post("/EGOLD", cors(), async (req, res) => {
 
     let transactionObject = {
       from: Account.address,
-      to: EGOLDAddress,
+      to: egoldAddress,
       gas: 200000,
       gasPrice: "10000000000",
       nonce: await web3.eth.getTransactionCount(Account.address),

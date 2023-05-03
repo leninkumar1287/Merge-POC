@@ -56,7 +56,7 @@ function RazorPay({
           shipping: shippingDetails,
         }
       );
-      // console.log(response, "response")
+
       const { data } = response;
       const options = {
         key: process.env.REACT_APP_RAZORPAY_KEY,
@@ -90,7 +90,6 @@ function RazorPay({
 
       const rzp1 = new window.Razorpay(options);
       rzp1.open();
-      // console.log(rzp1)
     } catch (error) {
       console.log("Error", error);
       alert(`Transaction Failed. ${error.data.error}`);

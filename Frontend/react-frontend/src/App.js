@@ -7,7 +7,9 @@ import EINR from "./pages/einr";
 import EGOLD from "./pages/egold";
 import STAKING from "./pages/staking";
 import LENDING from "./pages/lending";
+import Inventory from "./pages/inventory";
 import ABC from "./pages/abc";
+import EUSD from "./pages/eusd";
 
 function App() {
   return (
@@ -16,7 +18,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/EINR" element={<EINR />} />
+        <Route path="/EUSD" element={<EUSD />} />
         <Route path="/EGOLD" element={<EGOLD />} />
+        <Route path="/Inventory" element={<Inventory />} />
         <Route path="/STAKING" element={<STAKING />} />
         <Route path="/LENDING" element={<LENDING />} />
         <Route path="/ABC" element={<abc />} />

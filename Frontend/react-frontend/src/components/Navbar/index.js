@@ -29,10 +29,17 @@ const Navbar = () => {
 
         <NavMenu>
           <NavLink to="/EINR" activeStyle={{ color: "black" }}>
-            EINR-EUSD
+            EINR
+          </NavLink>
+          <NavLink to="/EUSD" activeStyle={{ color: "black" }}>
+            EUSD
           </NavLink>
           <NavLink to="/EGOLD" activeStyle={{ color: "black" }}>
             EGOLD
+          </NavLink>
+
+          <NavLink to="/INVENTORY" activeStyle={{ color: "black" }}>
+            INVENTORY
           </NavLink>
           <NavLink to="/STAKING" activeStyle={{ color: "black" }}>
             STAKING
